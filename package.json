@@ -1,0 +1,30 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "Explore Data Structure.",
+  "main": "readme.md",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akib22/data-structures.git"
+  },
+  "keywords": [
+    "data-structure",
+    "linked-lists",
+    "stack",
+    "heap",
+    "graph",
+    "tree"
+  ],
+  "author": "Akibur Rahman (Akib)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akib22/data-structures/issues"
+  },
+  "homepage": "https://github.com/akib22/data-structures#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}

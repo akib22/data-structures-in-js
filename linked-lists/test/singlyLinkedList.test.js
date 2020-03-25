@@ -20,7 +20,7 @@ describe('Singly Linked List', () => {
   describe('push', () => {
     it('should return a node with value of passing params', () => {
       const list = new SinglyLinkedLIst();
-      expect(list.push('22').value).toEqual('22');
+      expect(list.push('1').value).toEqual('1');
     });
 
     describe('for only one (first time) call', () => {
@@ -76,5 +76,41 @@ describe('Singly Linked List', () => {
         expect(list.length).toEqual(callCounter);
       });
     });
+  });
+
+  describe('pop', () => {
+    const list = new SinglyLinkedLIst();
+
+    describe('when list length is 0', () => {
+      it('should return undefined', () => {
+        expect(list.pop()).toBeUndefined();
+      });
+    });
+
+    describe('when list length is 1', () => {
+      it('should list head and tail to be null as well as length to be 0', () => {
+        list.push(1);
+        list.pop();
+        expect(list.head).toBeNull();
+        expect(list.tail).toBeNull();
+        expect(list.length).toEqual(0)
+      });
+    });
+
+    describe('when list length is greater than 1', () => {
+      it('should list tail to be previous node and length decrease by 1', () => {
+        let num = 3;
+        
+        for(let i = 1; i <= num; i += 1) {
+          list.push(i);
+        }
+  
+        const length = list.length;
+        list.pop();
+  
+        expect(list.tail.value).toEqual(num - 1);
+        expect(list.length).toEqual(length - 1);
+      });
+    })
   });
 });

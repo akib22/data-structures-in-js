@@ -13,6 +13,8 @@ class SinglyLinkedLIst {
   }
 
   push(val) {
+    if (!val) return null;
+
     const node = new Node(val);
 
     if (!this.head) {

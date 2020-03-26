@@ -18,21 +18,26 @@ describe('Singly Linked List', () => {
   });
 
   describe('push', () => {
+    it('should return null when call with undefined value', () => {
+      const list = new SinglyLinkedLIst();
+      expect(list.push()).toBeNull();
+    });
+
     it('should return a node with value of passing params', () => {
       const list = new SinglyLinkedLIst();
-      expect(list.push('1').value).toEqual('1');
+      expect(list.push(1).value).toEqual(1);
     });
 
     describe('for only one (first time) call', () => {
       const list = new SinglyLinkedLIst();
       list.push(1);
 
-      it('should list\'s head value to be 1 and list\'s head next to be null ', () => {
+      it('should list\'s head value to be 1 and list\'s head next to be null', () => {
         expect(list.head.value).toEqual(1);
         expect(list.head.next).toBeNull();
       });
 
-      it('should list\'s tail value to be 1 and list\'s tail next to be null ', () => {
+      it('should list\'s tail value to be 1 and list\'s tail next to be null', () => {
         expect(list.tail.value).toEqual(1);
         expect(list.tail.next).toBeNull();
       });
@@ -58,7 +63,7 @@ describe('Singly Linked List', () => {
         expect(list.head).not.toBe(list.tail);
       });
 
-      it('should list\'s head value equal to 1 and next not to be null ', () => {
+      it('should list\'s head value equal to 1 and next not to be null', () => {
         expect(list.head.value).toEqual(1);
         expect(list.head.next).not.toBeNull();
       });

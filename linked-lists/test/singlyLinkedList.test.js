@@ -118,4 +118,40 @@ describe('Singly Linked List', () => {
       });
     })
   });
+
+  describe('shift', () => {
+    const list = new SinglyLinkedLIst();
+
+    describe('when list length is 0', () => {
+      it('should return undefined.', () => {
+        expect(list.shift()).toBeUndefined();
+      })
+    });
+
+    describe('when list length is 1', () => {
+      it('should list head and tail to be null as well as length to be 0', () => {
+        list.push(1);
+        list.shift();
+        expect(list.head).toBeNull();
+        expect(list.tail).toBeNull();
+        expect(list.length).toEqual(0)
+      });
+    });
+
+    describe('when list length is greater than 1', () => {
+      it('should list head to be next node of the list and length decrease by 1', () => {
+        let num = 3;
+        
+        for(let i = 1; i <= num; i += 1) {
+          list.push(i);
+        }
+  
+        const length = list.length;
+        list.shift();
+  
+        expect(list.head.value).toEqual(num - 1);
+        expect(list.length).toEqual(length - 1);
+      });
+    })
+  });
 });

@@ -154,4 +154,30 @@ describe('Singly Linked List', () => {
       });
     })
   });
+
+  describe('unshift', () => {
+    const list = new SinglyLinkedLIst();
+    
+    it('should return null when call with undefined value', () => {
+      expect(list.unshift()).toBeNull();
+    });
+
+    describe('when list length 0', () => {
+      it('should head and tail same object and length to be 1', () => {
+        list.unshift(1);
+        expect(list.head).toEqual(list.tail);
+        expect(list.length).toBe(1);
+      });
+    });
+
+    describe('when list length is greater than 0', () => {
+      it('should new node to be head and length increase by 1', () => {
+        const testVal = 3;
+        const length = list.length;
+        list.unshift(testVal);
+        expect(list.head.value).toEqual(testVal);
+        expect(list.length).toBe(length + 1);
+      });
+    });
+  });
 });

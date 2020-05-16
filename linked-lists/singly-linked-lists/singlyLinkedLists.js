@@ -72,6 +72,23 @@ class SinglyLinkedLIst {
       return deletedNode;
     }
   }
+
+  unshift(val) {
+    if (!val) return null;
+
+    const newNode = new Node(val);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length += 1;
+    return this.head;
+  }
 }
 
 module.exports = SinglyLinkedLIst;

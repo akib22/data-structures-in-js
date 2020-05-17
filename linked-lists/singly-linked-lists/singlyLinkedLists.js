@@ -114,6 +114,33 @@ class SinglyLinkedLIst {
 
     return foundNode;
   }
+
+  insert(index, value) {
+    if (
+      index === undefined ||
+      index > this.length ||
+      index < 0 ||
+      value === undefined
+    ) {
+      return undefined;
+    }
+      
+    if (index === 0) {
+      return this.unshift(value);
+    }
+    
+    if (index === this.length) {
+      return this.push(value);
+    } 
+    
+    const newNode = new Node(value);
+    let foundNode = this.get(index - 1);
+    newNode.next = foundNode.next;
+    foundNode.next = newNode;
+    this.length += 1;
+    
+    return newNode;
+  }
 }
 
 module.exports = SinglyLinkedLIst;

@@ -180,4 +180,26 @@ describe('Singly Linked List', () => {
       });
     });
   });
+
+  describe('get', () => {
+    describe('when input is less than 0 or greater than list length', () => {
+      const list = new SinglyLinkedLIst();
+
+      it('should return undefined', () => {
+        expect(list.get(-1)).toBeUndefined();
+        expect(list.get(1)).toBeUndefined();
+      });
+    });
+
+    describe('when input is between 0 to list length', () => {
+      const list = new SinglyLinkedLIst();
+      list.push(1);
+      list.push(2);
+
+      it('should return that indexed value', () =>{
+        expect(list.get(0).value).toBe(1);
+        expect(list.get(1).value).toBe(2);
+      });
+    });
+  });
 });

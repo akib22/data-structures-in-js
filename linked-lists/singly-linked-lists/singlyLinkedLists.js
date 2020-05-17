@@ -89,6 +89,21 @@ class SinglyLinkedLIst {
     this.length += 1;
     return this.head;
   }
+
+  get(index) {
+    if (index < 0 || index > this.length - 1) {
+      return undefined;
+    }
+    
+    let currentNode = this.head;
+
+    while(index) {
+      currentNode = currentNode.next;
+      index -= 1;
+    }
+
+    return currentNode;
+  }
 }
 
 module.exports = SinglyLinkedLIst;

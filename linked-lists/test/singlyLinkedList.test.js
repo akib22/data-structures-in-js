@@ -202,4 +202,34 @@ describe('Singly Linked List', () => {
       });
     });
   });
+
+  describe('set', () => {
+    describe('when call without any value', () => {
+      const list = new SinglyLinkedLIst();
+
+      it('should return false.', () => {
+        expect(list.set()).toBeFalsy();
+      })
+    });
+
+    describe('when index less than 0 and greater than list length', () => {
+      const list = new SinglyLinkedLIst();
+
+      it('should return false', () => {
+        expect(list.set(-1, -1)).toBeFalsy()
+        expect(list.set(100, 100)).toBeFalsy()
+      });
+    });
+
+    describe('when input is between 0 to list length', () => {
+      const list = new SinglyLinkedLIst();
+      list.push(1);
+      list.push(2);
+
+      it('should add new value in that node', () =>{
+        expect(list.set(0, 'new 1').value).toBe('new 1');
+        expect(list.set(1, 'new 2').value).toBe('new 2');
+      });
+    });
+  })
 });

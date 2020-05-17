@@ -46,7 +46,7 @@ class SinglyLinkedLIst {
     let currentNode = this.head;
     let i = 1;
 
-    while(i < this.length - 1) {
+    while (i < this.length - 1) {
       currentNode = currentNode.next;
       i += 1;
     }
@@ -94,15 +94,25 @@ class SinglyLinkedLIst {
     if (index < 0 || index > this.length - 1) {
       return undefined;
     }
-    
+
     let currentNode = this.head;
 
-    while(index) {
+    while (index) {
       currentNode = currentNode.next;
       index -= 1;
     }
 
     return currentNode;
+  }
+
+  set(index, value) {
+    const foundNode = this.get(index);
+    
+    if (!foundNode) return false;
+
+    foundNode.value = value;
+
+    return foundNode;
   }
 }
 

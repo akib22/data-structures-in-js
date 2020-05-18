@@ -291,5 +291,16 @@ describe('Singly Linked List', () => {
         expect(list.remove(1).value).toBe(2);
       });
     });
+
+    describe('when remove is called', () => {
+      const list = new SinglyLinkedLIst();
+      list.push(1);
+      list.push(2);
+      list.remove(0);
+
+      it('should decrease length by 1', () => {
+        expect(list.length).toBe(1);
+      });
+    });
   });
 });

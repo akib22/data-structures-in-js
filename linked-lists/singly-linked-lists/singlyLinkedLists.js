@@ -162,7 +162,8 @@ class SinglyLinkedLIst {
     const prevNode = this.get(index - 1);
     const removedNode = prevNode.next;
     prevNode.next = removedNode.next;
-
+    this.length -= 1;
+    
     return removedNode;
 
   }

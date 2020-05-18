@@ -131,7 +131,7 @@ class SinglyLinkedLIst {
     
     if (index === this.length) {
       return this.push(value);
-    } 
+    }
     
     const newNode = new Node(value);
     let foundNode = this.get(index - 1);
@@ -140,6 +140,31 @@ class SinglyLinkedLIst {
     this.length += 1;
     
     return newNode;
+  }
+
+  remove(index) {
+    if (
+      index === undefined ||
+      index > this.length ||
+      index < 0
+    ) {
+      return undefined;
+    }
+      
+    if (index === 0) {
+      return this.shift();
+    }
+    
+    if (index === this.length) {
+      return this.pop();
+    }
+
+    const prevNode = this.get(index - 1);
+    const removedNode = prevNode.next;
+    prevNode.next = removedNode.next;
+
+    return removedNode;
+
   }
 }
 

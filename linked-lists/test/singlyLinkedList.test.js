@@ -262,4 +262,34 @@ describe('Singly Linked List', () => {
       });
     });
   });
+
+  describe('remove', () => {
+    describe('when call without any value', () => {
+      const list = new SinglyLinkedLIst();
+
+      it('should return undefined without making any effect on list.', () => {
+        expect(list.remove()).toBeUndefined();
+      });
+    });
+
+    describe('when index less than 0 and greater than list length', () => {
+      const list = new SinglyLinkedLIst();
+
+      it('should return undefined without making any effect on list.', () => {
+        expect(list.remove(-1)).toBeUndefined();
+        expect(list.remove(100)).toBeUndefined();
+      });
+    });
+
+    describe('when input is between 0 to list length', () => {
+      const list = new SinglyLinkedLIst();
+      list.push(1);
+      list.push(2);
+
+      it('should remove that indexed node from list', () => {
+        expect(list.remove(0).value).toBe(1);
+        expect(list.remove(1).value).toBe(2);
+      });
+    });
+  });
 });

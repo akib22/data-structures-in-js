@@ -107,6 +107,22 @@ class DoublyLinkedList {
 
     return node;
   }
+
+  set(index, value) {
+    if (value === undefined) {
+      return false;
+    }
+
+    const foundNode = this.get(index);
+
+    if (!foundNode) {
+      return false;
+    }
+
+    foundNode.value = value;
+    
+    return true;
+  }
 }
 
 module.exports = DoublyLinkedList;

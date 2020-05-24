@@ -156,4 +156,31 @@ describe('Doubly Linked List', () => {
       });
     });
   });
+
+  describe('set', () => {
+    const list = new DoublyLinkedLIst();
+
+    describe('when call without any value or with one value', () => {
+      it('should return undefined', () => {
+        expect(list.set()).toBeFalsy();
+        expect(list.set(1)).toBeFalsy();
+      });
+    });
+
+    describe('when index is less than 0 or greater than list length', () => {
+      it('should return undefined', () => {
+        expect(list.set(-1, 'value')).toBeFalsy();
+        expect(list.set(100, 'value')).toBeFalsy();
+      });
+    });
+
+    describe('when index is between 0 to list length', () => {
+      it('should change that indexed value.', () => {
+        list.push('not changed');
+        expect(list.get(0).value).toBe('not changed');
+        list.set(0, 'changed');
+        expect(list.get(0).value).toBe('changed');
+      });
+    })
+  });
 });

@@ -51,13 +51,13 @@ describe('Doubly Linked List', () => {
 
   describe('pop', () => {
     const list = new DoublyLinkedLIst();
-  
+
     describe('when list length is 0', () => {
       it('should return undefined', () => {
         expect(list.pop()).toBeUndefined();
       });
     });
-  
+
     describe('when list length is 1', () => {
       it('should list head and tail to be null as well as length to be 0', () => {
         list.push(1);
@@ -67,18 +67,18 @@ describe('Doubly Linked List', () => {
         expect(list.length).toEqual(0);
       });
     });
-  
+
     describe('when list length is greater than 1', () => {
       it('should remove the last node and list tail to be previous node and length decrease by 1', () => {
         let num = 3;
-  
+
         for (let i = 1; i <= num; i += 1) {
           list.push(i);
         }
-  
+
         const length = list.length;
         list.pop();
-  
+
         expect(list.tail.value).toEqual(num - 1);
         expect(list.length).toEqual(length - 1);
       });
@@ -130,6 +130,30 @@ describe('Doubly Linked List', () => {
       expect(list.head.value).toBe(2);
       list.shift();
       expect(list.head).toBeNull();
+    });
+  });
+
+  describe('get', () => {
+    describe('when index is greater than length(length - 1) and less than 0 or index is undefined', () => {
+      it('should return undefined', () => {
+        const list = new DoublyLinkedLIst();
+        list.push(1);
+        list.push(2);
+
+        expect(list.get(-1)).toBeUndefined();
+        expect(list.get(100)).toBeUndefined();
+      });
+    });
+
+    describe('when index is between 0 to list length(length - 1)', () => {
+      it('should return that indexed node', () => {
+        const list = new DoublyLinkedLIst();
+        list.push(1);
+        list.push(2);
+
+        expect(list.get(0).value).toBe(1);
+        expect(list.get(1).value).toBe(2);
+      });
     });
   });
 });

@@ -92,6 +92,21 @@ class DoublyLinkedList {
 
     return removedNode;
   }
+
+  get(value) {
+    if (value === undefined || value < 0 || value >= this.length) {
+      return undefined;
+    }
+
+    let node = this.head;
+
+    while (value) {
+      node = node.next;
+      value -= 1;
+    }
+
+    return node;
+  }
 }
 
 module.exports = DoublyLinkedList;

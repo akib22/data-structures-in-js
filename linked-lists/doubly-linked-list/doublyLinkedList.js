@@ -74,6 +74,24 @@ class DoublyLinkedList {
 
     return newNode;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+
+    let removedNode = this.head;
+
+    if (!this.head.next) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = this.head.next;
+      this.head.prev = null;
+    }
+
+    this.length -= 1;
+
+    return removedNode;
+  }
 }
 
 module.exports = DoublyLinkedList;

@@ -106,4 +106,30 @@ describe('Doubly Linked List', () => {
       expect(list.length).toBe(2);
     });
   });
+
+  describe('shift', () => {
+    it('should decrease length by 1 every call', () => {
+      const list = new DoublyLinkedLIst();
+      list.push(1);
+      list.push(2);
+
+      expect(list.length).toBe(2);
+      list.shift();
+      expect(list.length).toBe(1);
+      list.shift();
+      expect(list.length).toBe(0);
+    });
+
+    it('should remove first node of list and make list head second node (if exists).', () => {
+      const list = new DoublyLinkedLIst();
+      list.push(1);
+      list.push(2);
+
+      expect(list.head.value).toBe(1);
+      list.shift();
+      expect(list.head.value).toBe(2);
+      list.shift();
+      expect(list.head).toBeNull();
+    });
+  });
 });

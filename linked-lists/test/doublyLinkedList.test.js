@@ -84,4 +84,26 @@ describe('Doubly Linked List', () => {
       });
     });
   });
+
+  describe('unshift', () => {
+    it('should add new node in the beginning as head.', () => {
+      const list = new DoublyLinkedLIst();
+
+      expect(list.head).toBeNull();
+      list.unshift(1);
+      expect(list.head.value).toBe(1);
+      list.unshift(2);
+      expect(list.head.value).toBe(2);
+    });
+
+    it('should increase length by 1 every call', () => {
+      const list = new DoublyLinkedLIst();
+
+      expect(list.length).toBe(0);
+      list.unshift(1);
+      expect(list.length).toBe(1);
+      list.unshift(2);
+      expect(list.length).toBe(2);
+    });
+  });
 });

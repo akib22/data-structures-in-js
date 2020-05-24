@@ -36,9 +36,9 @@ class DoublyLinkedList {
 
   pop() {
     if (!this.head) return undefined;
-  
+
     let removedNode;
-  
+
     if (!this.head.next) {
       removedNode = this.head;
       this.head = null;
@@ -48,10 +48,31 @@ class DoublyLinkedList {
       this.tail = this.tail.prev;
       this.tail.next = null;
     }
-  
+
     this.length -= 1;
-  
+
     return removedNode;
+  }
+
+  unshift(value) {
+    if (value === undefined) {
+      return undefined;
+    }
+
+    const newNode = new Node(value);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length += 1;
+
+    return newNode;
   }
 }
 

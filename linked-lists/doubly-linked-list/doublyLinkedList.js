@@ -140,6 +140,7 @@ class DoublyLinkedList {
     const newNode = new Node(value);
     const prevNode = this.get(index - 1);
     newNode.next = prevNode.next;
+    newNode.prev = prevNode;
     prevNode.next = newNode;
     this.length += 1;
 

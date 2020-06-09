@@ -209,4 +209,37 @@ describe('Doubly Linked List', () => {
       expect(list.length).toBe(1);
     });
   });
+
+  describe('remove', () => {
+    const list = new DoublyLinkedLIst();
+
+    it('should return false when index is undefined or less than 0 or greater than (length-1)', () => {
+      expect(list.remove()).toBeUndefined()
+      expect(list.remove(-1)).toBeUndefined()
+      expect(list.remove(100)).toBeUndefined()
+    })
+
+    describe('when input is between 0 to list length', () => {
+      const list = new DoublyLinkedLIst();
+      list.push(1);
+      list.push(2);
+
+      it('should remove that indexed node from list', () => {
+        expect(list.remove(0).value).toBe(1);
+        list.unshift(1);
+        expect(list.remove(1).value).toBe(2);
+      });
+    });
+
+    describe('when remove is called', () => {
+      const list = new DoublyLinkedLIst();
+      list.push(1);
+      list.push(2);
+      list.remove(0);
+
+      it('should decrease length by 1', () => {
+        expect(list.length).toBe(1);
+      });
+    });
+  });
 });

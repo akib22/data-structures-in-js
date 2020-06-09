@@ -123,6 +123,28 @@ class DoublyLinkedList {
     
     return true;
   }
+
+  insert(index, value) {
+    if (index === undefined || value === undefined || index > this.length) {
+      return undefined;
+    }
+
+    if (!this.head  || index === 0) {
+      return this.unshift(value);
+    }
+
+    if (this.length === index) {
+      return this.push(value);
+    }
+
+    const newNode = new Node(value);
+    const prevNode = this.get(index - 1);
+    newNode.next = prevNode.next;
+    prevNode.next = newNode;
+    this.length += 1;
+
+    return newNode;
+  }
 }
 
 module.exports = DoublyLinkedList;

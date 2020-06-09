@@ -181,6 +181,32 @@ describe('Doubly Linked List', () => {
         list.set(0, 'changed');
         expect(list.get(0).value).toBe('changed');
       });
-    })
+    });
+  });
+
+  describe('inset', () => {
+    const list = new DoublyLinkedLIst();
+    it('should return undefined when index or value is undefined', () => {
+      expect(list.insert()).toBeUndefined();
+      expect(list.insert(1)).toBeUndefined();
+    });
+
+    it('should change the index`s old-value by new-value', () => {
+      list.push('1');
+      expect(list.get(0).value).toBe('1');
+      list.insert(0, 'new 1');
+      expect(list.get(0).value).toBe('new 1');
+      list.insert(1, '2');
+      expect(list.get(1).value).toBe('2');
+      list.insert(1, 'new 2');
+      expect(list.get(1).value).toBe('new 2');
+    });
+
+    it('should increase length by 1', () => {
+      const list = new DoublyLinkedLIst();
+      expect(list.length).toBe(0);
+      list.insert(0, 1);
+      expect(list.length).toBe(1);
+    });
   });
 });
